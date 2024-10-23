@@ -1,5 +1,9 @@
-$primary-color: #64ff00;
+$primary: #ff8310;
+$white: #fff;
+$boxShadowColor: #0000001a;
 
 :export {
-  primaryColor: $primary-color;
+  primary: $primary;
+  white: $white;
+  boxShadowColor: $boxShadowColor;
 }

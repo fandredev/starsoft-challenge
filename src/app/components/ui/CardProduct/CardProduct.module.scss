@@ -1,0 +1,34 @@
+@import '../variables.module.scss';
+
+.cardWrapper {
+  width: 345px;
+  height: 555px;
+  gap: 49px;
+  border-radius: 8px;
+  opacity: 0px;
+  box-shadow: 0px 1px 2px 0px $boxShadowColor;
+  background-color: #191a20;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25.2px;
+}
+.card-text {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 12px;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+  }
+}

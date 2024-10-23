@@ -13,7 +13,7 @@ export default function HeaderHomePage() {
       </div>
       <div className={styles['container-bag-quantity-products']}>
         <Image
-          src="/images/icons/Bag.svg"
+          src="/images/icons/bag.svg"
           alt="Ícone de uma mochila laranja sinalizando a quantidade de produtos"
           width={33}
           height={33}
