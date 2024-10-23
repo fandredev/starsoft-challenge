@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Poppins, IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -10,6 +10,12 @@ const poppins = Poppins({
   display: 'swap',
   variable: '--font-poppins',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+
+const IbmPlexSans = IBM_Plex_Sans({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-ibm-plex-sans',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.variable}`}>
+      <body className={`${poppins.variable} ${IbmPlexSans.variable}`}>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
