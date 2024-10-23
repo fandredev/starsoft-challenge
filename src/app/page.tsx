@@ -1,6 +1,7 @@
 'use client';
 
 import CardProduct from './components/ui/CardProduct';
+import Footer from './components/ui/Footer';
 import HeaderHomePage from './components/ui/Header';
 import Loading from './components/ui/Loading';
 import { useStarSoftProducts } from './hooks/useStarSoftProducts';
@@ -22,6 +23,8 @@ export default function Home() {
         </main>
       )}
       {isLoading && <Loading />}
+
+      <Footer />
     </>
   );
 }
