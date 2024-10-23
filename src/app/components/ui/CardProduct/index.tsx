@@ -12,9 +12,17 @@ interface CardProductProps {
 export default function CardProduct({ product }: CardProductProps) {
   return (
     <div className={styles.cardWrapper}>
-      <div></div>
+      <figure className={styles.productImage}>
+        <Image
+          src={product.image}
+          alt={product.description}
+          width={258}
+          loading="lazy"
+          height={258}
+        />
+      </figure>
 
-      <div>
+      <div className={styles.containerProductInformations}>
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles['card-text']}>{product.description}</p>
 
@@ -25,7 +33,9 @@ export default function CardProduct({ product }: CardProductProps) {
             width={29}
             height={29}
           />
-          <span>{product.price} ETH</span>
+          <span>
+            {product.price} <abbr title="Ethereum">ETH</abbr>
+          </span>
         </div>
 
         <Button>Comprar</Button>

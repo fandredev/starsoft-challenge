@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  sassOptions: { additionalData: `$var: red;` },
+  images: {
+    domains: ['softstar.s3.amazonaws.com'],
+  },
 };
 
 export default nextConfig;

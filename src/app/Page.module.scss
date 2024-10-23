@@ -1,0 +1,12 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Colunas responsivas */
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  min-height: 100vh;
+}

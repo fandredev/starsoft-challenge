@@ -1,0 +1,10 @@
+@import '../variables.module.scss';
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  gap: 30px;
+  row-gap: 30px;
+}

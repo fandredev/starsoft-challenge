@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import ReactQueryProvider from './providers/QueryProvider';
 
 const poppins = Poppins({
