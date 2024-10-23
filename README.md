@@ -49,4 +49,3 @@ git@github.com:fandredev/starsoft-challenge.git
 E-mail: profissionalf.andre@gmail.com<br>
 Linkedin: https://www.linkedin.com/in/devfandre/<br>
 Pórtfolio: https://developer-felipe-andre.vercel.app/<br>
-# starsoft-challenge

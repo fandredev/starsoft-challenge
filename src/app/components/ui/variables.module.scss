@@ -2,8 +2,11 @@ $primary: #ff8310;
 $white: #fff;
 $boxShadowColor: #0000001a;
 
+$fontSecondary: var(--font-ibm-plex-sans);
+
 :export {
   primary: $primary;
   white: $white;
   boxShadowColor: $boxShadowColor;
+  fontSecondary: $fontSecondary;
 }

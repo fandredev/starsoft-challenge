@@ -10,8 +10,8 @@ export default function Loading() {
         visible
         height="80"
         width="80"
-        color="#4fa94d"
-        ariaLabel="tail-spin-loading"
+        color="#FF8310"
+        ariaLabel="Carregando produtos..."
         radius="1"
       />
       Carregando produtos. Aguarde um momentinho, ok? 😁⏳
