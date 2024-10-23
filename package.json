@@ -8,13 +8,26 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "author": {
+    "email": "profissionalf.andre@gmail.com",
+    "url": "https://developer-felipe-andre.vercel.app/",
+    "name": "Felipe André"
+  },
+  "keywords": [
+    "StarSoft",
+    "Produtos",
+    "Vaga"
+  ],
+  "bugs": {
+    "url": "https://github.com/fandredev/starsoft-challenge/issues",
+    "email": "profissionalf.andre@gmail.com"
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.59.15",
     "next": "14.2.16",
     "react": "^18",
     "react-dom": "^18",
     "react-loader-spinner": "^6.1.6",
-    "react-loading-skeleton": "^3.5.0",
     "sass": "^1.80.3"
   },
   "devDependencies": {
