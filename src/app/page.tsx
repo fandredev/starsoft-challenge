@@ -12,19 +12,21 @@ export default function Home() {
   const { data, isLoading } = useStarSoftProducts();
 
   return (
-    <>
+    <div>
       <HeaderHomePage />
 
       {!isLoading && (
-        <main className={styles.main}>
-          {data?.map((product) => (
-            <CardProduct key={product.id} product={product} />
-          ))}
-        </main>
+        <>
+          <main className={styles.main}>
+            {data?.map((product) => (
+              <CardProduct key={product.id} product={product} />
+            ))}
+          </main>
+
+          <Footer />
+        </>
       )}
       {isLoading && <Loading />}
-
-      <Footer />
-    </>
+    </div>
   );
 }

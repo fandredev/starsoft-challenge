@@ -4,12 +4,29 @@ import Button from '../Button';
 
 import styles from './CardProduct.module.scss';
 import Product from '@/app/interfaces/Product';
+import { useDispatch } from 'react-redux';
+import { addItem } from '@/app/store/cartSlice';
 
 interface CardProductProps {
   product: Product;
 }
 
 export default function CardProduct({ product }: CardProductProps) {
+  const dispatch = useDispatch();
+
+  function handleAddCartItem() {
+    const newProduct: Product = {
+      name: product.name,
+      createdAt: product.createdAt,
+      description: product.description,
+      id: product.id,
+      image: product.image,
+      price: product.price,
+    };
+
+    dispatch(addItem(newProduct));
+  }
+
   return (
     <div className={styles.cardWrapper}>
       <figure className={styles.productImage}>
@@ -38,7 +55,7 @@ export default function CardProduct({ product }: CardProductProps) {
           </span>
         </div>
 
-        <Button>Comprar</Button>
+        <Button onClick={handleAddCartItem}>Comprar</Button>
       </div>
     </div>
   );

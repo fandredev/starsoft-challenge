@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins, IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
-import 'react-loading-skeleton/dist/skeleton.css';
 
 import ReactQueryProvider from './providers/QueryProvider';
+import ReduxProvider from './providers/ReduxProvider';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -31,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.variable} ${IbmPlexSans.variable}`}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <ReduxProvider>{children}</ReduxProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
