@@ -6,6 +6,7 @@ import Product from '@/app/interfaces/Product';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getCurrentQuantityById } from '@/app/store/cartSlice';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 interface CardProductProps {
   product: Product;
@@ -13,6 +14,8 @@ interface CardProductProps {
 
 export default function CardProduct({ product }: CardProductProps) {
   const dispatch = useDispatch();
+  const [productAdded, setProductAdded] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState('Comprar');
 
   const currentQuantityProduct = useSelector(
     getCurrentQuantityById(product.id)
@@ -31,7 +34,14 @@ export default function CardProduct({ product }: CardProductProps) {
     };
 
     dispatch(addItem(newProduct));
+    setProductAdded(true);
   }
+
+  useEffect(() => {
+    if (productAdded) {
+      setButtonLabel('Adicionado ao carrinho');
+    }
+  }, [productAdded]);
 
   return (
     <motion.div
@@ -66,7 +76,9 @@ export default function CardProduct({ product }: CardProductProps) {
           </span>
         </div>
 
-        <Button onClick={handleAddCartItem}>Comprar</Button>
+        <Button productAdded={productAdded} onClick={handleAddCartItem}>
+          {buttonLabel}
+        </Button>
       </div>
     </motion.div>
   );

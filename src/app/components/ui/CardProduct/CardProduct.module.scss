@@ -40,6 +40,10 @@
     margin: 1rem 0;
   }
 
+  p {
+    color: $gray;
+  }
+
   .product-price {
     display: flex;
     align-items: center;
@@ -50,6 +54,7 @@
       font-weight: 600;
       font-size: 20px;
       line-height: 22px;
+      color: #f0f0f0;
     }
   }
 }

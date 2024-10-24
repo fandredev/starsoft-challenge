@@ -1,5 +1,8 @@
 $primary: #ff8310;
 $white: #fff;
+$gray: #cccccc;
+$gray-100: #494949;
+
 $boxShadowColor: #0000001a;
 
 $fontSecondary: var(--font-ibm-plex-sans);
@@ -8,5 +11,7 @@ $fontSecondary: var(--font-ibm-plex-sans);
   primary: $primary;
   white: $white;
   boxShadowColor: $boxShadowColor;
+  gray: $gray;
+  gray-100: $gray-100;
   fontSecondary: $fontSecondary;
 }
