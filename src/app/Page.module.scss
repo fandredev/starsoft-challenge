@@ -1,3 +1,5 @@
+@import '../app/components/ui/variables.module.scss';
+
 .main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -7,4 +9,34 @@
   align-items: center;
   padding: 0 40px;
   flex: 1;
+}
+
+.section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  button {
+    height: 66px;
+    padding: 10px 26px 10px 26px;
+    border-radius: 8px;
+    box-shadow: 0px 50px 100px -20px $boxShadowColor;
+    color: $white;
+    border: none;
+    background-color: #393939;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 22.4px;
+    cursor: pointer;
+    width: 20%;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+@media (max-width: 678px) {
+  .section button {
+    width: auto;
+  }
 }
