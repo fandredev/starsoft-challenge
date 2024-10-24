@@ -8,6 +8,10 @@
 }
 .container-checkout {
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }
 .button-back-page {
   padding: 1rem;

@@ -6,7 +6,6 @@ import React from 'react';
 import styles from './Checkout.module.scss';
 import ProductItemDetail from '../components/ui/ProductItemDetail';
 
-import {} from 'react/';
 import { useRouter } from 'next/navigation';
 
 function Checkout() {
@@ -34,15 +33,6 @@ function Checkout() {
       </header>
       <div className={styles['container-checkout']}>
         <ProductItemDetail />
-        {/* {isProductInCart && (
-          <UpdateProductQuantity
-            product={product}
-            currentQuantity={currentQuantityProduct}
-          />
-        )} */}
-        {/* {!isProductInCart && (
-          <Button onClick={handleAddCartItem}>Comprar</Button>
-        )} */}
       </div>
     </>
   );
