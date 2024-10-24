@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import React from 'react';
 import Button from '../Button';
 
 import styles from './CardProduct.module.scss';
 import Product from '@/app/interfaces/Product';
-import { useDispatch } from 'react-redux';
-import { addItem } from '@/app/store/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, getCurrentQuantityById } from '@/app/store/cartSlice';
+import UpdateProductQuantity from '../Button/IncreaseProduct';
 
 interface CardProductProps {
   product: Product;
@@ -13,6 +13,13 @@ interface CardProductProps {
 
 export default function CardProduct({ product }: CardProductProps) {
   const dispatch = useDispatch();
+
+  const currentQuantityProduct = useSelector(
+    getCurrentQuantityById(product.id)
+  );
+
+  const isProductInCart = currentQuantityProduct > 0;
+  const totalPrice = currentQuantityProduct * +product.price;
 
   function handleAddCartItem() {
     const newProduct: Product = {
@@ -51,11 +58,21 @@ export default function CardProduct({ product }: CardProductProps) {
             height={29}
           />
           <span>
-            {product.price} <abbr title="Ethereum">ETH</abbr>
+            {totalPrice ? totalPrice : product.price}{' '}
+            <abbr title="Ethereum">ETH</abbr>
           </span>
         </div>
 
-        <Button onClick={handleAddCartItem}>Comprar</Button>
+        {isProductInCart && (
+          <UpdateProductQuantity
+            product={product}
+            currentQuantity={currentQuantityProduct}
+          />
+        )}
+
+        {!isProductInCart && (
+          <Button onClick={handleAddCartItem}>Comprar</Button>
+        )}
       </div>
     </div>
   );

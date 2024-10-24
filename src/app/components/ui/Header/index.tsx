@@ -3,9 +3,12 @@ import React from 'react';
 import StartSoftLogo from '../StartSoftLogo';
 
 import styles from './Header.module.scss';
+import { useSelector } from 'react-redux';
+import { selectCartCount } from '@/app/store/cartSlice';
 
 export default function HeaderHomePage() {
-  const quantityProducts = 0;
+  const quantityProducts = useSelector(selectCartCount);
+
   return (
     <header className={styles.header}>
       <div>

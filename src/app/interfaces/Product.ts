@@ -5,4 +5,6 @@ export default interface Product {
   image: string;
   price: string;
   createdAt: Date | string;
+
+  quantity?: number;
 }

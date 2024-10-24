@@ -1,35 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit";
-import Product from "../interfaces/Product";
+import { createSlice } from '@reduxjs/toolkit';
+import Product from '../interfaces/Product';
 
-
+import type { RootState } from '../store';
 
 interface CartState {
-  cart: Product[]
+  cart: Product[];
 }
 
 const INITIAL_STATE: CartState = {
-  cart: []
-}
+  cart: [],
+};
 
 export type Actions = {
-  type: string
-  payload: Product
-}
-
+  type: string;
+  payload: Product;
+};
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: INITIAL_STATE,
   reducers: {
     addItem(state, action: Actions) {
-      state.cart.push(action.payload)
-    }
-  }
-})
+      const itemExists = state.cart.find(
+        (product) => product.id === action.payload.id
+      );
 
-export const { addItem } = cartSlice.actions
-export default cartSlice.reducer
+      if (!itemExists) state.cart.push({ ...action.payload, quantity: 1 });
+    },
 
-// 
+    incrementQuantityItem(state, action: Actions) {
+      const itemExists = state.cart.find(
+        (product) => product.id === action.payload.id
+      );
 
-export const getCart = (state: { cart: CartState }) => state.cart.cart
+      if (itemExists && itemExists.quantity) itemExists.quantity++;
+    },
+  },
+});
+
+export const { addItem, incrementQuantityItem } = cartSlice.actions;
+export default cartSlice.reducer;
+
+//
+
+export const getCart = ({ cart }: RootState) => cart.cart;
+export const selectCartCount = ({ cart }: RootState) => cart.cart.length;
+
+export const getCurrentQuantityById =
+  (id: number) =>
+  ({ cart }: RootState) =>
+    cart.cart.find((product) => product.id === id)?.quantity || 0;
