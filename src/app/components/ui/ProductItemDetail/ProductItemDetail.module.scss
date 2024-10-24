@@ -98,3 +98,11 @@
     }
   }
 }
+
+@media (max-width: 678px) {
+  .container-product-detail-item {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+  }
+}

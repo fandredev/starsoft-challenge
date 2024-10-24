@@ -11,6 +11,7 @@
 - [asdf](https://asdf-vm.com/)
 - [React Query](https://www.npmjs.com/package/react-query)
 - [Framer](https://www.framer.com/)
+- [asdf](https://asdf-vm.com/)
 
 ### Details
 
@@ -53,3 +54,6 @@ Pórtfolio: https://developer-felipe-andre.vercel.app/<br>
 - [RTK](https://redux-toolkit.js.org/)
 - [Next.JS](https://nextjs.org/docs)
 - [Framer animation](https://www.framer.com/motion/animation/)
+- [Infnite queries YT](https://www.youtube.com/watch?v=s92apk05kT4)
+- [Infnite queries Doc](https://tanstack.com/query/latest/docs/framework/react/guides/infinite-queries)
+- [Sass Variables](https://sass-lang.com/documentation/variables/)
