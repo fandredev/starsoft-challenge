@@ -4,7 +4,7 @@ import Button from '../Button';
 import styles from './CardProduct.module.scss';
 import Product from '@/app/interfaces/Product';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, getCurrentQuantityById } from '@/app/store/cartSlice';
+import { addProduct, getCurrentQuantityById } from '@/app/store/cartSlice';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -33,7 +33,7 @@ export default function CardProduct({ product }: CardProductProps) {
       price: product.price,
     };
 
-    dispatch(addItem(newProduct));
+    dispatch(addProduct(newProduct));
     setProductAdded(true);
   }
 

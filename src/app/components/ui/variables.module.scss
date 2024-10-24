@@ -2,8 +2,8 @@ $primary: #ff8310;
 $white: #fff;
 $gray: #cccccc;
 $gray-100: #494949;
-
 $boxShadowColor: #0000001a;
+$buttonBackgroundBackProducts: #373737;
 
 $fontSecondary: var(--font-ibm-plex-sans);
 
@@ -14,4 +14,5 @@ $fontSecondary: var(--font-ibm-plex-sans);
   gray: $gray;
   gray-100: $gray-100;
   fontSecondary: $fontSecondary;
+  buttonBackgroundBackProducts: $buttonBackgroundBackProducts;
 }

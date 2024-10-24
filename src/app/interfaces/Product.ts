@@ -3,8 +3,9 @@ export default interface Product {
   name: string;
   description: string;
   image: string;
-  price: string;
+  price: number;
   createdAt: Date | string;
 
   quantity?: number;
+  totalPrice?: number;
 }
