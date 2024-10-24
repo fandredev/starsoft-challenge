@@ -5,7 +5,7 @@ import styles from './CardProduct.module.scss';
 import Product from '@/app/interfaces/Product';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getCurrentQuantityById } from '@/app/store/cartSlice';
-import UpdateProductQuantity from '../Button/IncreaseProduct';
+import { motion } from 'framer-motion';
 
 interface CardProductProps {
   product: Product;
@@ -18,7 +18,6 @@ export default function CardProduct({ product }: CardProductProps) {
     getCurrentQuantityById(product.id)
   );
 
-  const isProductInCart = currentQuantityProduct > 0;
   const totalPrice = currentQuantityProduct * +product.price;
 
   function handleAddCartItem() {
@@ -35,16 +34,20 @@ export default function CardProduct({ product }: CardProductProps) {
   }
 
   return (
-    <div className={styles.cardWrapper}>
-      <figure className={styles.productImage}>
-        <Image
-          src={product.image}
-          alt={product.description}
-          width={258}
-          loading="lazy"
-          height={258}
-        />
-      </figure>
+    <motion.div
+      className={styles.cardWrapper}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Image
+        src={product.image}
+        alt={product.description}
+        width={258}
+        loading="lazy"
+        height={258}
+        className={styles.productImage}
+      />
 
       <div className={styles.containerProductInformations}>
         <h3 className={styles.title}>{product.name}</h3>
@@ -63,17 +66,8 @@ export default function CardProduct({ product }: CardProductProps) {
           </span>
         </div>
 
-        {isProductInCart && (
-          <UpdateProductQuantity
-            product={product}
-            currentQuantity={currentQuantityProduct}
-          />
-        )}
-
-        {!isProductInCart && (
-          <Button onClick={handleAddCartItem}>Comprar</Button>
-        )}
+        <Button onClick={handleAddCartItem}>Comprar</Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
