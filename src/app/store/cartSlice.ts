@@ -33,7 +33,9 @@ const cartSlice = createSlice({
         (product) => product.id === action.payload.id
       );
 
-      if (itemExists && itemExists.quantity) itemExists.quantity++;
+      if (itemExists && itemExists?.quantity) {
+        itemExists.quantity += 1;
+      }
     },
   },
 });
@@ -45,6 +47,8 @@ export default cartSlice.reducer;
 
 export const getCart = ({ cart }: RootState) => cart.cart;
 export const selectCartCount = ({ cart }: RootState) => cart.cart.length;
+export const getTotalCartQuantity = ({ cart }: RootState) =>
+  cart.cart.reduce((acc, item) => acc + (item?.quantity ?? 0), 0);
 
 export const getCurrentQuantityById =
   (id: number) =>

@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <div>
       <HeaderHomePage />
-
       {!isLoading && (
         <>
           <main className={styles.main}>
