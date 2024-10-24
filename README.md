@@ -20,8 +20,6 @@ I use yarn to construct this project. Please, feel free to use another package m
 
 ## Clone this repo
 
-###### Notes: Check the .env.example before clone this repo
-
 ```
 git@github.com:fandredev/starsoft-challenge.git
 ```
@@ -49,3 +47,9 @@ git@github.com:fandredev/starsoft-challenge.git
 E-mail: profissionalf.andre@gmail.com<br>
 Linkedin: https://www.linkedin.com/in/devfandre/<br>
 Pórtfolio: https://developer-felipe-andre.vercel.app/<br>
+
+## References
+
+- [RTK](https://redux-toolkit.js.org/)
+- [Next.JS](https://nextjs.org/docs)
+- [Framer animation](https://www.framer.com/motion/animation/)

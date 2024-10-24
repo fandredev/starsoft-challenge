@@ -1,3 +1,5 @@
+@import '../variables.module.scss';
+
 .container-product-item {
   display: flex;
   flex-flow: column;
@@ -24,7 +26,7 @@
     justify-content: space-evenly;
     padding: 0.7rem;
     row-gap: 7px;
-    > div {
+    > .container-right-product-detail-value {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -45,6 +47,25 @@
         }
       }
     }
+
+    > .container-right-product-detail-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+
+      > button {
+        border-radius: 50%;
+        background-color: $primary;
+        border: none;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
     > p {
       font-size: 12px;
       font-weight: 300;

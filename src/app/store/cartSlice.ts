@@ -33,7 +33,14 @@ const cartSlice = createSlice({
         });
     },
 
+    deleteItem(state, action) {
+      state.cart = state.cart.filter(
+        (product) => product.id !== action.payload
+      );
+    },
+
     incrementQuantityItem(state, action: Actions) {
+      // TODO: quando o item tá 0 nos detalhes do card, ele nao apaga sozinho ver isso
       const itemExists = state.cart.find(
         (product) => product.id === action.payload.id
       );
@@ -46,10 +53,39 @@ const cartSlice = createSlice({
         itemExists.totalPrice += itemExists.price;
       }
     },
+
+    decreaseItemQuantity(state, action) {
+      const itemExists = state.cart.find(
+        (product) => product.id === action.payload.id
+      );
+
+      // this logic should be better
+      if (itemExists && itemExists?.quantity) {
+        itemExists.quantity -= 1;
+      }
+      if (itemExists && itemExists?.quantity === 0) {
+        state.cart = state.cart.filter(
+          (product) => product.id !== action.payload.id
+        );
+      }
+
+      if (itemExists && itemExists?.totalPrice) {
+        itemExists.totalPrice -= itemExists.price;
+      }
+    },
+    clearCart(state) {
+      state.cart = [];
+    },
   },
 });
 
-export const { addProduct, incrementQuantityItem } = cartSlice.actions;
+export const {
+  addProduct,
+  incrementQuantityItem,
+  deleteItem,
+  decreaseItemQuantity,
+  clearCart
+} = cartSlice.actions;
 export default cartSlice.reducer;
 
 //

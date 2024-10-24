@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  decreaseItemQuantity,
   getCurrentQuantityById,
   incrementQuantityItem,
 } from '@/app/store/cartSlice';
@@ -22,12 +23,12 @@ export default function UpdateProductQuantity({
   const dispatch = useDispatch();
 
   function handleIncreaseItem() {
-    console.log(product, 'product');
-
     dispatch(incrementQuantityItem(product));
   }
 
-  function handleDecreaseItem() {}
+  function handleDecreaseItem() {
+    dispatch(decreaseItemQuantity(product));
+  }
 
   return (
     <aside className={styles['buttons-container']}>

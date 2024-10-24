@@ -7,11 +7,15 @@ import styles from './Checkout.module.scss';
 import ProductItemDetail from '../components/ui/ProductItemDetail';
 
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../store/cartSlice';
 
 function Checkout() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   function handleNavigatePreviousPage() {
+    dispatch(clearCart());
     router.back();
   }
 

@@ -1,17 +1,25 @@
-import { getCart, getTotalCartPrice } from '@/app/store/cartSlice';
+import { deleteItem, getCart, getTotalCartPrice } from '@/app/store/cartSlice';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './ProductItemDetail.module.scss';
 import UpdateProductQuantity from '../Button/IncreaseProduct';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import Button from '../Button';
 import EmptyProduct from '../EmptyProduct';
 
 export default function ProductItemDetail() {
+  const [finishCartText, setFinishCartText] = useState('FINALIZAR COMPRA');
+
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalCartPrice);
+
+  const dispatch = useDispatch();
+
+  function handleFinishCart() {
+    setFinishCartText('COMPRA FINALIZADA!');
+  }
 
   return (
     <main className={styles['container-product-item']}>
@@ -41,7 +49,9 @@ export default function ProductItemDetail() {
                   <span>{product.name}</span>
                   <p>{product.description}</p>
 
-                  <div>
+                  <div
+                    className={styles['container-right-product-detail-value']}
+                  >
                     <Image
                       src="/images/icons/etherium.svg"
                       alt="Ícone da moeda Etherium"
@@ -53,7 +63,24 @@ export default function ProductItemDetail() {
                       <abbr title="Ethereum"> ETH</abbr>
                     </span>
                   </div>
-                  <UpdateProductQuantity product={product} />
+
+                  <div
+                    className={styles['container-right-product-detail-actions']}
+                  >
+                    <UpdateProductQuantity product={product} />
+                    <button
+                      onClick={() => {
+                        dispatch(deleteItem(product.id));
+                      }}
+                    >
+                      <Image
+                        src="/images/icons/delete.svg"
+                        alt="Ícone de uma lixeira para representar deletar um produto"
+                        width={24}
+                        height={24}
+                      />
+                    </button>
+                  </div>
                 </aside>
               </motion.div>
             </>
@@ -73,7 +100,9 @@ export default function ProductItemDetail() {
             </span>
           </div>
           <div>
-            <Button productAdded>Finalizar compra</Button>
+            <Button productAdded onClick={handleFinishCart}>
+              {finishCartText}
+            </Button>
           </div>
         </>
       ) : (
