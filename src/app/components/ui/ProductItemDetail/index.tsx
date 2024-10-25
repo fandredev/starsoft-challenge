@@ -11,6 +11,7 @@ import EmptyProduct from '../EmptyProduct';
 
 export default function ProductItemDetail() {
   const [finishCartText, setFinishCartText] = useState('FINALIZAR COMPRA');
+  const [finishCart, setFinishCart] = useState(false);
 
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalCartPrice);
@@ -19,12 +20,18 @@ export default function ProductItemDetail() {
 
   function handleFinishCart() {
     setFinishCartText('COMPRA FINALIZADA!');
+    setFinishCart(true);
   }
 
   return (
     <main className={styles['container-product-item']}>
       {cart.length > 0 ? (
         <>
+          <h1>
+            {!finishCart
+              ? 'Conclua sua compra'
+              : 'Compra concluída com sucesso'}
+          </h1>
           {cart.map((product) => (
             <>
               <motion.div
@@ -64,28 +71,31 @@ export default function ProductItemDetail() {
                     </span>
                   </div>
 
-                  <div
-                    className={styles['container-right-product-detail-actions']}
-                  >
-                    <UpdateProductQuantity product={product} />
-                    <button
-                      onClick={() => {
-                        dispatch(deleteItem(product.id));
-                      }}
+                  {!finishCart && (
+                    <div
+                      className={
+                        styles['container-right-product-detail-actions']
+                      }
                     >
-                      <Image
-                        src="/images/icons/delete.svg"
-                        alt="Ícone de uma lixeira para representar deletar um produto"
-                        width={24}
-                        height={24}
-                      />
-                    </button>
-                  </div>
+                      <UpdateProductQuantity product={product} />
+                      <button
+                        onClick={() => {
+                          dispatch(deleteItem(product.id));
+                        }}
+                      >
+                        <Image
+                          src="/images/icons/delete.svg"
+                          alt="Ícone de uma lixeira para representar deletar um produto"
+                          width={24}
+                          height={24}
+                        />
+                      </button>
+                    </div>
+                  )}
                 </aside>
               </motion.div>
             </>
           ))}
-
           <div className={styles['container-total-price']}>
             <span>Total</span>
             <span>
