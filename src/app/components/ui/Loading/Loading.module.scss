@@ -6,3 +6,10 @@
   gap: 30px;
   row-gap: 30px;
 }
+
+@media (max-width: 678px) {
+  .loading {
+    text-align: center;
+    padding: 1rem;
+  }
+}

@@ -54,7 +54,6 @@ export default function CardProduct({ product }: CardProductProps) {
         src={product.image}
         alt={product.description}
         width={258}
-        loading="lazy"
         height={258}
         className={styles.productImage}
       />
