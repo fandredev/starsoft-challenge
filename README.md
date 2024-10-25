@@ -43,6 +43,14 @@ git@github.com:fandredev/starsoft-challenge.git
  yarn run dev
 ```
 
+## WITH DOCKER (Recomended)
+
+```
+docker build -t nextjs-docker . && docker run -p 3000:3000 nextjs-docker
+```
+
+After that, open http://localhost:3000 in your browser!
+
 ## :mailbox_with_no_mail: Contacts
 
 E-mail: profissionalf.andre@gmail.com<br>
@@ -57,3 +65,4 @@ Pórtfolio: https://developer-felipe-andre.vercel.app/<br>
 - [Infnite queries YT](https://www.youtube.com/watch?v=s92apk05kT4)
 - [Infnite queries Doc](https://tanstack.com/query/latest/docs/framework/react/guides/infinite-queries)
 - [Sass Variables](https://sass-lang.com/documentation/variables/)
+- [Docker + Next.JS](https://nextjs.org/docs/app/building-your-application/deploying)
